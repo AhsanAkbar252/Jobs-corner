@@ -1,0 +1,135 @@
+
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-dark job1">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Create Job</h1>
+          <!-- Breadcrumb row -->
+          <div class="breadcrumb-row">
+            <ul class="list-inline">
+              <li><a href="#">Home</a></li>
+              <li>Create Job</li>
+            </ul>
+          </div>
+          <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+      <!-- Submit Resume -->
+      <div class="section-full bg-white submit-resume content-inner-2">
+        <div class="container">
+          <%= form_for @job do|f| %>
+
+            <div class="form-group">
+              <%= f.label :title %> 
+              <%= f.text_field :title, class: "form-control", placeholder:"Enter title of Job" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :employer_email %> 
+              <%= f.email_field :employer_email, class: "form-control", placeholder:"Enter Your email" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :salary %> 
+              <%= f.text_field :salary, class: "form-control", placeholder:"Enter Salary(In Dollars)" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :qualification %> 
+              <%= f.text_field :qualification, class: "form-control", placeholder:"Qualification required" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :experience %> 
+              <%= f.text_field :experience, class: "form-control", placeholder:"Experience required" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :job_address %> 
+              <%= f.text_field :job_address, class: "form-control", placeholder:"Company address" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :job_city%> 
+              <%= f.text_field :job_city, class: "form-control", placeholder:"Your City" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :job_country %> 
+              <%= f.text_field :job_country, class: "form-control", placeholder:"Your Country" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description %> 
+              <%= f.text_area :description, class: "form-control", placeholder:"Description of Job" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :employer_detail %> 
+              <%= f.text_area :employer_detail, class: "form-control", placeholder:"Tell about your company" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :package_detail %> 
+              <%= f.text_area :package_detail, class: "form-control", placeholder:"Package detail" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :job_requirements %> 
+              <%= f.text_area :job_requirements, class: "form-control", placeholder:"Job Requirements" %>
+            </div>
+            <div class="form-group">
+               <%= f.label :job_type %>
+               <%= f.select :job_type, ['Full Time', 'Part Time','Internship']%>
+            </div>
+
+            <div class="form-group">
+              <div class="custom-file">
+                 <%= f.label :avatar, "Company Logo"%><span style="color: red;"> *</span></br>
+                 <%= f.file_field :avatar,class: "site-button bg-primary",id: "customFile" %> 
+              </div>
+            </div>
+
+
+            
+<!--             <div class="form-group">
+              <label>Region</label>
+              <select>
+                <option>New York</option>
+                <option>London</option>
+                <option>Los Angeles</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Professional title</label>
+              <input type="text" class="form-control" placeholder="Web Designer">
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" class="form-control" placeholder="London">
+            </div>
+            <div class="form-group">
+              <label>Photo (optional)</label>
+              <div class="custom-file">
+                <input type="file" class="site-button" id="customFile">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Video (optional)</label>
+              <input type="text" class="form-control" placeholder="Video Link">
+            </div>
+            <div class="form-group">
+              <label>Minimum rate/h ($) (optional)</label>
+              <input type="text" class="form-control" placeholder="50 ($)">
+            </div>
+            <div class="form-group">
+              <label>Resume category</label>
+              <select>
+                <option>Designe</option>
+                <option>Construct</option>
+                <option>Food Service</option>
+              </select>
+            </div> -->
+
+            <%= f.submit "Submit ", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+            <!-- Submit Resume END -->
+    </div>
+    </div>
+    <!-- Content END-->

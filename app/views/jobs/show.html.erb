@@ -1,0 +1,137 @@
+
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle job1" >
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Job Detail</h1>
+          <!-- Breadcrumb row -->
+          <div class="breadcrumb-row">
+            <ul class="list-inline">
+              <li><a href="#">Home</a></li>
+              <li>Job Detail</li>
+            </ul>
+          </div>
+          <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+            <!-- Job Detail -->
+      <div class="section-full content-inner-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="sticky-top">
+                <div class="row">
+                  <div class="col-lg-12 col-md-6">
+                    <div class="m-b30">
+                      <% if @job.avatar != nil %>              
+                        <%= image_tag @job.avatar(:medium) %>
+                      <% else %>
+                        <img class="img3">
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-6">
+                    <div class="widget bg-white p-lr20 p-t20  widget_getintuch radius-sm">
+                      <h4 class="text-black font-weight-700 p-t10 m-b15">Job Details</h4>
+                      <ul>
+                        <li><i class="ti-location-pin"></i><strong class="font-weight-700 text-black">Address</strong><span class="text-black-light"> <%= @job.job_address %> </span></li>
+                        <li><i class="ti-money"></i><strong class="font-weight-700 text-black">Salary</strong> <%= @job.salary %> Monthy</li>
+                        <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Experience required</strong><%= @job.experience %> years</li>
+                        <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Employer</strong><%= @job.user.username %></li>
+                        <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Job Type</strong><%= @job.job_type %></li>
+                        <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Contact Info</strong><%= @job.employer_email%></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                            </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="job-info-box">
+                <h3 class="m-t0 m-b10 font-weight-700 title-head">
+                  <a href="#" class="text-secondry m-r30"><%= @job.title %></a>
+                </h3>
+                <ul class="job-info">
+                  <li><strong>Education</strong> <%= @job.qualification %></li>
+                  <li><strong>Published:</strong> <%= time_ago_in_words(@job.created_at) %> ago</li>
+                  <li><i class="ti-location-pin text-black m-r5"></i> <%= @job.job_city %>,<%= @job.job_country %></li>
+                </ul>
+                <h5 class="font-weight-600">About Company</h5>
+                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                <p><%= @job.employer_detail %></p>
+                <h5 class="font-weight-600">Job Description</h5>
+                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                <p><%= @job.description %></p>
+                <h5 class="font-weight-600">Package details</h5>
+                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                <p><%= @job.package_detail %></p>
+                <h5 class="font-weight-600">Job Requirements</h5>
+                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                <p><%= @job.job_requirements %></p>
+                      
+                      <%= link_to "Apply now",new_job_application_path(new_job_application_path,current_job_id: @job.id),class: "site-button bg-primary" %>                
+                    
+                      <% if current_user == @job.user %>
+                       <%= link_to "Edit",edit_job_path(@job),class: "site-button bg-success" %>
+                       <%= link_to "Delete",job_path(@job),method: :delete,data:{confirm: "Are you sure to delete job"},class: "site-button bg-danger" %>
+
+                     <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Job Detail -->
+      <!-- Our Jobs -->
+      <div class="section-full content-inner">
+        <div class="container">
+          <div class="row">
+            <% @jobs.sample(4).each do|job| %>
+            <% if job != @job %>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+              <div class="m-b30 blog-grid">
+                                <div class="dez-post-media dez-img-effect " style="height: 200px;background-color: #A9A9A9;"> <a href="#">
+                                  <% if job.avatar != nil %>              
+                                    <%= image_tag job.avatar(:large) %>
+                                  <% else %>
+                                    <img class="img3">
+                                  <% end %>
+                                </a> </div>
+                                <div class="dez-info p-a20 border-1">
+                                    <div class="dez-post-title ">
+                                        <h5 class="post-title"><a href="#"><%= job.title %></a></h5>
+                                    </div>
+                                    <div class="dez-post-meta ">
+                                        <ul>
+                                            <li class="post-date"> <i class="ti-location-pin"></i><a><%= job.job_city %>,<%= job.job_country %></a> </li>
+                                            <li class="post-author"><i class="ti-user"></i>By <a href="#"></a><%= job.user.username %> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="dez-post-text">
+                                      <div class="job-time mr-auto">
+                                        <span><%= job.job_type %></span>
+                                      </div>
+                                    </div>
+                                   <div class="dez-post-readmore"> 
+                    <a href="<%= job_path(job) %>" class="btn btn-primary  outline">View <i class="ti-arrow-right"></i></a>
+                  </div>
+                                </div>
+                            </div>
+            </div>
+            <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <!-- Our Jobs END -->
+    </div>
+    </div>
+    <!-- Content END-->
+  <!-- Footer -->
+   

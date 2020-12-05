@@ -1,0 +1,65 @@
+
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle bg-pt login1" >
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Login</h1>
+          <!-- Breadcrumb row -->
+          <div class="breadcrumb-row">
+            <ul class="list-inline">
+              <li><a href="#">Home</a></li>
+              <li>Login</li>
+            </ul>
+          </div>
+          <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="section-full content-inner-2 shop-account">
+            <!-- Product -->
+            <div class="container">
+                <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="font-weight-700 m-t0 m-b20">Login Your Account</h3>
+          </div>
+        </div>
+        
+        <div>
+          <div class="max-w500 m-auto m-b30">
+            <div class="p-a30 border-1 seth">
+              <div class="tab-content nav">
+                <%= form_for(resource, as: resource_name, :url=> session_path(resource_name),:html =>{class: "tab-pane active col-12 p-a0",id: "login"}) do |f| %>
+                  <h4 class="font-weight-700">LOGIN</h4>
+                  <p class="font-weight-600">If you have an account with us, please log in.</p>
+                  <div class="form-group">
+                    <%= f.label :email ,class: "font-weight-700"%>
+                    <%= f.text_field :email, autofocus: true, class: "form-control", placeholder:"Enter email" %> 
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :password,class: "font-weight-700" %>
+                    <%= f.password_field :password, class: "form-control", placeholder:"Enter Password" %>
+                  </div>
+                  <% if devise_mapping.rememberable? %>
+                        <div class="col-5 ">
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                        </div>
+                  <% end %>
+                  <div class="text-left">
+                    <%= f.submit "Log in", class: "site-button m-r5 button-lg" %>
+                    <%= link_to "Forgot your password?", new_password_path(resource_name),class: "m-l5 fa fa-unlock-alt" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Product END -->
+    </div>
+    <!-- contact area  END -->
+    </div>
+

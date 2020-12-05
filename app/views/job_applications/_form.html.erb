@@ -1,0 +1,158 @@
+
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-dark job1">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Submit Resume</h1>
+          <!-- Breadcrumb row -->
+          <div class="breadcrumb-row">
+            <ul class="list-inline">
+              <li><a href="#">Home</a></li>
+              <li>Submit Resume</li>
+            </ul>
+          </div>
+          <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+      <!-- Submit Resume -->
+      <div class="section-full bg-white submit-resume content-inner-2">
+        <div class="container">
+          <%= form_for @job_application,  html: { multipart: true }  do|f| %>
+
+            <div class="form-group">
+              <%= f.label :name %> 
+              <%= f.text_field :name, class: "form-control", placeholder:"Enter Your full name" %>
+            </div>
+          <div class="form-group">
+              <%= f.label :age %> 
+              <%= f.number_field :age, class: "form-control", placeholder:"Enter your age" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :qualification %> 
+              <%= f.text_field :qualification, class: "form-control", placeholder:"Your Education" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :qualification_detail %> 
+              <%= f.text_area :qualification_detail, class: "form-control", placeholder:"Your Qualification Detail" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :experience, "Years of experience" %> 
+              <%= f.number_field :experience, class: "form-control", placeholder:"Years of Experience" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :experience_detail %> 
+              <%= f.text_area :experience_detail, class: "form-control", placeholder:"Your Experience details " %>
+            </div>
+            <div class="form-group">
+              <div class="custom-file">
+                 <%= f.label :file, "Resume "%><span style="color: red;"> *</span></br>
+                 <%= f.file_field :file,class: "site-button bg-primary",id: "customFile" %>  
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="custom-file">
+                 <%= f.label "Profile Photo"%><span style="color: red;"> *</span></br>
+                 <%= f.file_field :avatar,class: "site-button bg-primary",id: "customFile" %> 
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :address %> 
+              <%= f.text_field :address, class: "form-control", placeholder:"Your Address" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :city %> 
+              <%= f.text_field :city, class: "form-control", placeholder:"Your City" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :country %> 
+              <%= f.text_field :country, class: "form-control", placeholder:"Your Country" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :previous_company %> 
+              <%= f.text_field :previous_company, class: "form-control", placeholder:"Your Previous Company" %>
+            </div>
+
+<!--             <div class="form-group">
+              <label>Region</label>
+              <select>
+                <option>New York</option>
+                <option>London</option>
+                <option>Los Angeles</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Professional title</label>
+              <input type="text" class="form-control" placeholder="Web Designer">
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" class="form-control" placeholder="London">
+            </div>
+            <div class="form-group">
+              <label>Photo (optional)</label>
+              <div class="custom-file">
+                <input type="file" class="site-button" id="customFile">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Video (optional)</label>
+              <input type="text" class="form-control" placeholder="Video Link">
+            </div>
+            <div class="form-group">
+              <label>Minimum rate/h ($) (optional)</label>
+              <input type="text" class="form-control" placeholder="50 ($)">
+            </div>
+            <div class="form-group">
+              <label>Resume category</label>
+              <select>
+                <option>Designe</option>
+                <option>Construct</option>
+                <option>Food Service</option>
+              </select>
+            </div> -->
+            <div class="form-group">
+              <%= f.label :personalinfo %> 
+              <%= f.text_area :personalinfo, class: "form-control", placeholder:"Tell us about yourself" %>
+            </div>
+            <div class="form-group d-none">
+              <%= f.label :job_id %> 
+              <%= f.text_field :job_id, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :skills %> 
+              <%= f.text_field :skills, class: "form-control", placeholder:"Your skills" %>
+            </div>
+
+            <%= f.submit "Submit ", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+            <!-- Submit Resume END -->
+    </div>
+    </div>
+    <!-- Content END-->
+  <!-- Footer -->
+</div>
+
+
+
+new 
+biuld 
+assign_attribute
+2
+update
+update_attribute
+update_attributes
+update_column
+update_columns
+3
+devise
+stripe
+cancancan
+
