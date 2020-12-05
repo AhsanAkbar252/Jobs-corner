@@ -7,9 +7,10 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-  config.serve_static_assets = true
-  # Code is not reloaded between requests.
-  config.cache_classes = true
+ onfig.cache_classes = true
+config.serve_static_assets = true
+config.assets.compile = true
+config.assets.digest = true
   Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
   Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
 
@@ -35,7 +36,6 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
