@@ -7,7 +7,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-
+  config.serve_static_assets = true
   # Code is not reloaded between requests.
   config.cache_classes = true
   Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
