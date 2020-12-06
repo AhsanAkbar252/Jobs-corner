@@ -1,14 +1,14 @@
  
     <div class="page-content bg-white">
         <!-- inner page banner -->
-        <div class="dez-bnr-inr overlay-black-middle job1" >
+        <div class="dez-bnr-inr overlay-black-middle job1" style="height:300px;margin-top: 80px;">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
                     <h1 class="text-white">Find Users</h1>
           <!-- Breadcrumb row -->
           <div class="breadcrumb-row">
             <ul class="list-inline">
-              <li><a href="#">Home</a></li>
+              <li><a href="<%= root_path %>">Home</a></li>
               <li>Find Users</li>
             </ul>
           </div>
@@ -21,6 +21,11 @@
         <div class="content-block">
         <div class="section-full content-inner">
           <div class="container">
+              <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">Find People</h5>
+                <% if @profiles.count == 0 %>
+                  <h1  align="center">Oops! No Users Found.</br>Come Back Later</br><i style="font-size:50px; color: #FFD700;" class="fa fa-frown-o reset-i"></i></h1>
+                  
+                <% end %>
             <div class="row">
               <% @profiles.each do|user| %>
               <% if user.user != current_user %>

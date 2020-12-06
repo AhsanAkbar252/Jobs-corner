@@ -7,8 +7,8 @@
             <div class="main-bar clearfix">
                 <div class="container clearfix ">
                     <!-- website logo -->
-                    <div class="logo-header mostion">
-            <a href="<%= root_path %>"><img class="logo img2" ></a>
+                    <div class="logo-header mostion" style="padding-top: 20px;">
+            <a class="navbar-brand" style="color: black; font-family: fantasy;" href="<%= root_path %>"><img class="logo img2" style="padding-bottom: 5px;">  <strong style="font-weight: bold;font-size:30px;">JOBS </strong><strong style="color: black;font-weight: bold;font-size:30px;">CORNER</strong></a>
           </div>
                     <!-- nav toggle button -->
                     <!-- nav toggle button -->
@@ -44,16 +44,16 @@
               <li id ='candidateContainer'>
                 <a id="candidates">For Candidates <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu">
-                  <li><a href="<%= jobs_path %>" class="dez-page">Browse Jobs</a></li>
-                  <li><a href="<%= profiles_path %>" class="dez-page">Other Users</a></li>
-                  <li><a href="<%= my_applications_path %>" class="dez-page">My applications</a></li>
+                  <li><a href="<%= jobs_path %>" class="dez-page">BROWSE JOBS</a></li>
+                  <li><a href="<%= profiles_path %>" class="dez-page">FIND USERS</a></li>
+                  <li><a href="<%= my_applications_path %>" class="dez-page">MY APPLICATIONS</a></li>
                 </ul>
               </li>
               <li id ='employerContainer'>
                 <a id ='employers'>For Employers <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu">
-                  <li><a href="<%= job_applications_path %>" class="dez-page">Browse Candidates</a></li>
-                  <li><a href="<%= new_job_path %>" class="dez-page">Add Job</a></li>
+                  <li><a href="<%= job_applications_path %>" class="dez-page">BROWSE CANDIDATES</a></li>
+                  <li><a href="<%= new_job_path %>" class="dez-page">ADD JOB</a></li>
                 </ul>
               </li>
               <li>
@@ -81,7 +81,8 @@
                   <% if current_user.profile != nil %>
                   <li><a href="<%= profile_path(current_user.profile) %>" class="dez-page">View Your profile</a></li>
                   <% else %>
-                  <li><a href="<%= new_profile_path %>" class="dez-page">Make Your profile</a></li>
+                  <li><a href="<%= new_profile_path %>" class="dez-page">MAKE PROFILE</a></li>
+                  <li><a href="<%= edit_user_registration_path %>" class="dez-page">CHANGE PASSWORD</a></li>
                   <% end %>
                 </ul>
               </li>

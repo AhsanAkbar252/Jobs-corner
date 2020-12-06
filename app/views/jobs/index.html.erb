@@ -2,14 +2,14 @@
 
     <div class="page-content bg-white">
         <!-- inner page banner -->
-        <div class="dez-bnr-inr overlay-black-middle job1" >
+        <div class="dez-bnr-inr overlay-black-middle job1" style="height:300px;margin-top: 80px;">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
                     <h1 class="text-white">Browse Jobs</h1>
           <!-- Breadcrumb row -->
           <div class="breadcrumb-row">
             <ul class="list-inline">
-              <li><a href="#">Home</a></li>
+              <li><a href="<%= root_path %>">Home</a></li>
               <li>Browse Jobs</li>
             </ul>
           </div>
@@ -23,9 +23,14 @@
       <!-- Browse Jobs -->
       <div class="section-full bg-white browse-job content-inner-2">
         <div class="container">
+              <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">Recent Jobs</h5>
+                <% if @jobs.count == 0 %>
+                  <h1  align="center">Oops! No Jobs Avalaible.</br>Come Back Later</br><i style="font-size:50px; color: #FFD700;" class="fa fa-frown-o reset-i"></i></h1>
+                  
+                <% end %>
           <div class="row">
             <div class="col-xl-9 col-lg-8">
-              <h5 class="widget-title font-weight-700 text-uppercase">Recent Jobs</h5>
+
               <ul class="post-job-bx">
                 <% @jobs.each do|job| %>
                 <li>

@@ -1,15 +1,15 @@
 
     <div class="page-content bg-white">
         <!-- inner page banner -->
-        <div class="dez-bnr-inr overlay-black-middle job1" >
+        <div class="dez-bnr-inr overlay-black-middle job1" style="height:300px;margin-top: 80px;">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
-                    <h1 class="text-white">Browse Candidates</h1>
+                    <h1 class="text-white">My Applications</h1>
           <!-- Breadcrumb row -->
           <div class="breadcrumb-row">
             <ul class="list-inline">
-              <li><a href="#">Home</a></li>
-              <li>Browse Candidates</li>
+              <li><a href="<%= root_path %>">Home</a></li>
+              <li>My Applications</li>
             </ul>
           </div>
           <!-- Breadcrumb row END -->
@@ -24,7 +24,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xl-9 col-lg-8">
-              <h5 class="widget-title font-weight-700 text-uppercase">My Applications</h5>
+              <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">Applications</h5>
               <ul class="post-job-bx">
 
               <% @my_applications.each do|applicant| %>
