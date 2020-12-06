@@ -36,28 +36,28 @@
                         </form>
                     </div>
                     <!-- main nav -->
-                    <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                    <div class="header-nav navbar-collapse collapse justify-content-start pc" id="navbarNavDropdown">
                         <ul class="nav navbar-nav">
               <li class="active">
                 <a href="<%= root_path %>">Home</a>
               </li>
-              <li>
-                <a href="#">For Candidates <i class="fa fa-chevron-down"></i></a>
+              <li id ='candidateContainer'>
+                <a id="candidates">For Candidates <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu">
                   <li><a href="<%= jobs_path %>" class="dez-page">Browse Jobs</a></li>
                   <li><a href="<%= profiles_path %>" class="dez-page">Other Users</a></li>
                   <li><a href="<%= my_applications_path %>" class="dez-page">My applications</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="#">For Employers <i class="fa fa-chevron-down"></i></a>
+              <li id ='employerContainer'>
+                <a id ='employers'>For Employers <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu">
                   <li><a href="<%= job_applications_path %>" class="dez-page">Browse Candidates</a></li>
                   <li><a href="<%= new_job_path %>" class="dez-page">Add Job</a></li>
                 </ul>
               </li>
               <li>
-                <a href="#">Pages <i class="fa fa-chevron-down"></i></a>
+                <a class="pc">Pages <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu">
                   <li><a href="about-us.html" class="dez-page">About Us</a></li>
                   <li><a href="coming-soon.html" class="dez-page">Coming Soon</a></li>
@@ -75,8 +75,8 @@
                 </ul>
               </li>
               <% if user_signed_in? %>
-              <li>
-                <a href="#">Profile <i class="fa fa-chevron-down"></i></a>
+              <li id ='profileContainer'>
+                <a id ='profile'>Profile <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu">
                   <% if current_user.profile != nil %>
                   <li><a href="<%= profile_path(current_user.profile) %>" class="dez-page">View Your profile</a></li>
