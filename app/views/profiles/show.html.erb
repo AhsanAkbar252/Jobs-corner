@@ -80,8 +80,10 @@
                   <li>DexignLab standard dummy text ever since</li>
                 </ul> -->
                   <% if current_user == @profile.user %>
+                    <div style="margin-top: 50px;">
                       <%= link_to "Edit",edit_profile_path(@profile),class: "site-button bg-success" %>
                       <%= link_to "Delete",profile_path(@profile),method: :delete,data:{confirm: "Are you sure to delete job"},class: "site-button bg-danger" %>
+                    </div>
                   <% end %>
 
               </div>

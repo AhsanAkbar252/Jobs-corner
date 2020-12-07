@@ -7,8 +7,8 @@
             <div class="main-bar clearfix">
                 <div class="container clearfix ">
                     <!-- website logo -->
-                    <div class="logo-header mostion" style="padding-top: 20px;">
-            <a class="navbar-brand" style="color: black; font-family: fantasy;" href="<%= root_path %>"><img class="logo img2" style="padding-bottom: 5px;">  <strong style="font-weight: bold;font-size:30px;">JOBS </strong><strong style="color: black;font-weight: bold;font-size:30px;">CORNER</strong></a>
+                    <div class="logo-header mostion" style="padding-top: 10px;float: left;">
+            <a class="navbar-brand" style="color: black; font-family: fantasy;" href="<%= root_path %>"><img class="logo img2" style="padding-bottom: 15px; display: inline;">   <strong style="font-weight: bold;font-size:40px;display: inline; margin-left: 10px;">JOBS CORNER</strong></a>
           </div>
                     <!-- nav toggle button -->
                     <!-- nav toggle button -->
@@ -74,17 +74,20 @@
                   <li><a href="contact.html" class="dez-page">Contact Us</a></li>
                 </ul>
               </li>
+
               <% if user_signed_in? %>
               <li id ='profileContainer'>
-                <a id ='profile'>Profile <i class="fa fa-chevron-down"></i></a>
-                <ul class="sub-menu">
+                  <a id ='profile'>Profile <i class="fa fa-chevron-down"></i></a>
+                  <ul class="sub-menu">
                   <% if current_user.profile != nil %>
-                  <li><a href="<%= profile_path(current_user.profile) %>" class="dez-page">View Your profile</a></li>
+                  <li><a href="<%= profile_path(current_user.profile) %>" class="dez-page">VIEW PROFILE</a></li>
+                  <li><a href="<%= edit_profile_path(current_user.profile) %>" class="dez-page">UPDATE PROFILE</a></li>
+                  <li><%= link_to "DELETE PROFILE",profile_path(current_user.profile),method: :delete,data:{confirm: "Are you sure to delete profile"},class: "dez-page" %></li>
                   <% else %>
                   <li><a href="<%= new_profile_path %>" class="dez-page">MAKE PROFILE</a></li>
-                  <li><a href="<%= edit_user_registration_path %>" class="dez-page">CHANGE PASSWORD</a></li>
                   <% end %>
-                </ul>
+                  <li><a href="<%= edit_user_registration_path %>" class="dez-page">CHANGE PASSWORD</a></li> 
+                 </ul>
               </li>
               <% end %>
             </ul>     
