@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class JobsController < ApplicationController
   before_action :authenticate_user!
   def new
@@ -56,6 +57,10 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @jobs = Job.all
 
+  end
+
+  def my_jobs
+    @my_jobs = Job.where(user_id: current_user.id).paginate(page: params[:page],per_page: 5)
   end
 
 end

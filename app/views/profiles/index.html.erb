@@ -28,7 +28,6 @@
                 <% end %>
             <div class="row">
               <% @profiles.each do|user| %>
-              <% if user.user != current_user %>
               <div class="col-4 col-lg-3" >
                 <div class="m-b30 blog-grid" >
                                   <div class="dez-post-media dez-img-effect " style="min-height: 200px; max-height: 200px;background-color: #A9A9A9;"> 
@@ -59,7 +58,6 @@
                                   </div>
                               </div>
               </div>
-              <% end %>
               <% end %>
             </div>
             <div class="pagination-bx m-t30" >

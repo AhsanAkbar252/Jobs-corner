@@ -74,13 +74,14 @@
                 <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
                 <p><%= @job.job_requirements %></p>
                       
-                      <%= link_to "Apply now",new_job_application_path(new_job_application_path,current_job_id: @job.id),class: "site-button bg-primary" %>                
+                                      
                     
                       <% if current_user == @job.user %>
                        <%= link_to "Edit",edit_job_path(@job),class: "site-button bg-success" %>
                        <%= link_to "Delete",job_path(@job),method: :delete,data:{confirm: "Are you sure to delete job"},class: "site-button bg-danger" %>
-
-                     <% end %>
+                      <% else %>
+                        <%= link_to "Apply now",new_job_application_path(new_job_application_path,current_job_id: @job.id),class: "site-button bg-primary" %>
+                      <% end %>
               </div>
             </div>
           </div>
@@ -97,7 +98,7 @@
               <div class="m-b30 blog-grid">
                                 <div class="dez-post-media dez-img-effect " style="height: 200px;background-color: #A9A9A9;"> <a href="#">
                                   <% if job.avatar != nil %>              
-                                    <%= image_tag job.avatar(:large) %>
+                                    <%= image_tag job.avatar(:medium) %>
                                   <% else %>
                                     <img class="img3">
                                   <% end %>

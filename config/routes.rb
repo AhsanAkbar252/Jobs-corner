@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :job_applications
   resources :profiles
   get 'my_applications',to:'job_applications#my_applications'
+  get 'my_jobs',to:'jobs#my_jobs'
 end

@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.paginate(page: params[:page],per_page: 8)
+    @profiles = Profile.where.not(user_id: current_user.id).paginate(page: params[:page],per_page: 8)
   end
 
   def profile_params

@@ -22,11 +22,13 @@
       <!-- Browse Jobs -->
       <div class="section-full bg-white browse-job content-inner-2">
         <div class="container">
+              <h5 class="widget-title font-weight-700 text-uppercase"  style="font-weight: bold;">Candidates</h5>
+                <% if @job_applications.count == 0 %>
+                  <h1  align="center">Oops! No Candidates Applications found.</br>Come Back Later</br><i style="font-size:50px; color: #FFD700;" class="fa fa-frown-o reset-i"></i></h1>                 
+                <% end %>
           <div class="row">
             <div class="col-xl-9 col-lg-8">
-              <h5 class="widget-title font-weight-700 text-uppercase">Candidates</h5>
               <ul class="post-job-bx">
-
               <% @job_applications.each do|applicant| %>
                 <% if applicant.job != nil && current_user==applicant.job.user%>
                   <li>
@@ -67,6 +69,10 @@
             <% end %>
                 
               </ul>
+
+              <div class="pagination-bx m-t30" >
+                 <%= will_paginate @my_applications,class: "pagination center" %>
+              </div>
 <!--               <div class="pagination-bx m-t30">
                 <ul class="pagination">
                   <li class="previous"><a href="#"><i class="ti-arrow-left"></i> Prev</a></li>

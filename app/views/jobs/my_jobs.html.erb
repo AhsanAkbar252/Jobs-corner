@@ -1,15 +1,16 @@
 
+
     <div class="page-content bg-white">
         <!-- inner page banner -->
         <div class="dez-bnr-inr overlay-black-middle job1" style="height:300px;margin-top: 80px;">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
-                    <h1 class="text-white">My Applications</h1>
+                    <h1 class="text-white">Browse Jobs</h1>
           <!-- Breadcrumb row -->
           <div class="breadcrumb-row">
             <ul class="list-inline">
               <li><a href="<%= root_path %>">Home</a></li>
-              <li>My Applications</li>
+              <li>Browse Jobs</li>
             </ul>
           </div>
           <!-- Breadcrumb row END -->
@@ -22,53 +23,55 @@
       <!-- Browse Jobs -->
       <div class="section-full bg-white browse-job content-inner-2">
         <div class="container">
-              <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">My Applications</h5>
-                <% if @my_applications.count == 0 %>
-                  <h1  align="center">Oops! You Didn't Applied To Any Job.</br><%= link_to "Find Jobs",jobs_path, class: "site-button bg-primary" %></br></h1>                 
+              <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">My Jobs</h5>
+                <% if @my_jobs.count == 0 %>
+                  <h1  align="center">Oops! You Didn't Posted Any Jobs Yet.</br><%= link_to "Add New Job", new_job_path, class: "site-button bg-primary" %></br></h1>                 
                 <% end %>
           <div class="row">
             <div class="col-xl-9 col-lg-8">
               <ul class="post-job-bx">
-              <% @my_applications.each do|applicant| %>
+                <% @my_jobs.each do|job| %>
+                <li>
+                  <a href="<%= job_path(job) %>"/>
+                    <div class="d-flex m-b30">
+                      <div class="job-post-company">
+                        <span>                      
+                          <% if job.avatar != nil %>              
+                            <%= image_tag job.avatar(:large) %>
+                          <% else %>
+                            <img class="img1">
+                         <% end %>
+                       </span>
+                      </div>
+                      <div class="job-post-info">
+                        <h4><strong><%= job.title %></strong></h4>
+                        <ul>
+                          <li><i class="fa fa-map-marker"></i> <%= job.job_city %>,<%= job.job_country %></li>
+                          <li><i class="fa fa-bookmark-o"></i><%= job.job_type %></li>
+                          <li><i class="fa fa-clock-o"></i>Published: <%= time_ago_in_words(job.created_at) %> ago</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="d-flex">
+                      <div class="job-time mr-auto">
+                        <span><%= job.job_type %></span>
+                      </div>
+                      <div class="salary-bx">
+                        <span style="font-weight: bold;">$<%= job.salary %></span>
+                      </div>
+                    </div>
+                    <!-- <span class="post-like fa fa-thumbs-up"></span> -->
+                  </a>
+                </li>
+                <% end %>
                 
-                  <li>
-                    <a href="<%= job_application_path(applicant) %>"/>
-                      <div class="d-flex m-b30">
-                        <div class="job-post-company">
-                          <span>
-                            <% if applicant.avatar !=  nil %>
-                               <%= image_tag(applicant.avatar(:medium)) %>
-                            <% else %>
-                              <img class="img1">
-                            <% end %>
-                          </span>
-                        </div>
-                        <div class="job-post-info">
-                          <h4><strong><%= applicant.job.title%></strong></h4>
-                          <ul>
-                            <li><i class="fa fa-map-marker"></i> <%= applicant.city %>,<%= applicant.country %></li>
-                            <li><i class="fa fa-clock-o"></i>submitted <%= time_ago_in_words(applicant.created_at) %> ago</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="d-flex">
-                        <div class="job-time mr-auto">
-                          <span><%= applicant.job.job_type%></span>
-                        </div>
-                        <div class="salary-bx">
-                          <span style="font-weight: bold;">Qualification : <%= applicant.qualification %></span>
-                        </div>
-                      </div>
-                      <!-- <span class="post-like fa fa-thumbs-up"></span> -->
-                    </a>
-                  </li>
-             
-              <% end %>               
               </ul>
+              
               <div class="pagination-bx m-t30" >
-                 <%= will_paginate @my_applications,class: "pagination center" %>
+                 <%= will_paginate @my_jobs,class: "pagination center" %>
               </div>
-<!--               <div class="pagination-bx m-t30">
+             
+ <!--              <div class="pagination-bx m-t30">
                 <ul class="pagination">
                   <li class="previous"><a href="#"><i class="ti-arrow-left"></i> Prev</a></li>
                   <li class="active"><a href="#">1</a></li>
@@ -164,8 +167,8 @@
             </div>
           </div>
         </div>
-      </div> -->
-            <!-- Browse Jobs END -->
+      </div>
+ -->            <!-- Browse Jobs END -->
     </div>
     </div>
   </div>
