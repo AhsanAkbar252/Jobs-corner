@@ -42,7 +42,27 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.where.not(user_id: current_user.id).paginate(page: params[:page],per_page: 8)
+    @profiles = Profile.all
+      if params[:search_country].present? || params[:search_city].present? || params[:search_name].present? || params[:search_profession].present? || params[:search_company].present?
+      if params[:search_country].present?
+        @profiles = @profiles.where(country: params[:search_country])
+      end
+      if params[:search_city].present?
+        @profiles = @profiles.where(city: params[:search_city])
+      end
+      if params[:search_name].present?
+       @profiles = @profiles.where("lower(name) like ?","%#{params[:search_name].downcase}%")
+      end
+      if params[:search_profession].present?
+        @profiles = @profiles.where("lower(profession) like ?","%#{params[:search_profession].downcase}%")
+      end
+      if params[:search_company].present?
+        @profiles = @profiles.where("lower(working_at) like ?","%#{params[:search_company].downcase}%")
+      end
+      @profiles = @profiles.paginate(page: params[:page],per_page: 5)
+    else
+      @profiles = @profiles.paginate(page: params[:page],per_page: 5)
+    end
   end
 
   def profile_params

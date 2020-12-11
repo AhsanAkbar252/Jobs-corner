@@ -40,9 +40,10 @@
                     <div class="widget bg-white p-lr20 p-t20  widget_getintuch radius-sm">
                       <h4 class="text-black font-weight-700 p-t10 m-b15">User Info</h4>
                       <ul>
-                        <li><i class="ti-location-pin"></i><strong class="font-weight-700 text-black">Address</strong><span class="text-black-light"><%= @profile.address %></span></li>
-                        <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Experience</strong><%= @profile.experience %> Years</li>
-                        <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Working at</strong><%= @profile.working_at %></li>
+                        <li><i class="fa fa-map-marker"></i><strong class="font-weight-700 text-black">Address</strong><span class="text-black-light"><%= @profile.address %></span></li>
+                        <li><i class="fa fa-laptop"></i><strong class="font-weight-700 text-black">Profession</strong><%= @profile.profession %></li>
+                        <li><i class="fa fa-user"></i><strong class="font-weight-700 text-black">Experience</strong><%= @profile.experience %> <% if @profile.experience==1 %>Year<% else%> Years<% end %></li>
+                        <li><i class="fa fa-building"></i><strong class="font-weight-700 text-black">Working at</strong><%= @profile.working_at %></li>
                       </ul>
                     </div>
                   </div>

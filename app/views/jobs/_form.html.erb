@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
               <%= f.label :salary %> 
-              <%= f.text_field :salary, class: "form-control", placeholder:"Enter Salary(In Dollars)" %>
+              <%= f.number_field :salary, class: "form-control", placeholder:"Enter Monthly Salary(In Dollars)" %>
             </div>
             <div class="form-group">
               <%= f.label :qualification %> 
@@ -74,7 +74,7 @@
             </div>
             <div class="form-group">
                <%= f.label :job_type %>
-               <%= f.select :job_type, ['Full Time', 'Part Time','Internship']%>
+               <%= f.select :job_type, ['Full Time', 'Part Time','Internship','Freelance'] %>
             </div>
 
             <div class="form-group">

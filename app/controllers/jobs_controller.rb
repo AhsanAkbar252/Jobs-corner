@@ -44,13 +44,29 @@ class JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.paginate(page: params[:page],per_page: 5)
+    # @jobs = Job.paginate(page: params[:page],per_page: 5)
+    @jobs = Job.all
+    if params[:country].present? || params[:city].present? || params[:type].present? || params[:job_salary].present?
+      if params[:country].present?
+        @jobs = @jobs.where(job_country: params[:country]).paginate(page: params[:page],per_page: 5)
+      end
+      if params[:city].present?
+        @jobs = @jobs.where(job_city: params[:city]).paginate(page: params[:page],per_page: 5)
+      end
+      if params[:type].present?
+        @jobs = @jobs.where(job_type: params[:type]).paginate(page: params[:page],per_page: 5)
+      end
+      if params[:job_salary].present?
+        @jobs = @jobs.where("salary > ?",params[:job_salary]).paginate(page: params[:page],per_page: 5)
+      end
+    else
+      @jobs = @jobs.paginate(page: params[:page],per_page: 5)
+    end
 
   end
 
   def job_params
     params.require(:job).permit(:title,:description,:qualification,:experience,:salary,:job_address,:job_type,:job_city,:job_country,:employer_detail,:package_detail,:job_requirements,:employer_email,:avatar)
-
   end
 
   def show
