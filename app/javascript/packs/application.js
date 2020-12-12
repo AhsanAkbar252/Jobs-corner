@@ -30,6 +30,7 @@ $(document).on('ready turbolinks:load', function() {
     $("#candidateContainer").toggleClass('open');
     $("#employerContainer").removeClass('open');
     $("#profileContainer").removeClass('open');
+    $("#pageContainer").removeClass('open');v
   }); 
 
   
@@ -39,6 +40,7 @@ $(document).on('ready turbolinks:load', function() {
     $("#employerContainer").toggleClass('open');
     $("#candidateContainer").removeClass('open');
     $("#profileContainer").removeClass('open');
+    $("#pageContainer").removeClass('open');
   }); 
 
   
@@ -47,6 +49,15 @@ $(document).on('ready turbolinks:load', function() {
     $("#profileContainer").toggleClass('open');
     $("#candidateContainer").removeClass('open');
     $("#employerContainer").removeClass('open');
+    $("#pageContainer").removeClass('open');
+  });
+
+    $('body').on('click', '#pages', function(e){
+    e.preventDefault();
+    $("#pageContainer").toggleClass('open');
+    $("#candidateContainer").removeClass('open');
+    $("#employerContainer").removeClass('open');
+    $("#profileContainer").removeClass('open');
   }); 
 
   $('body').on('click', function(e){
