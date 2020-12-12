@@ -1,0 +1,56 @@
+ 
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle job1" style="height:300px;margin-top: 80px;">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Feedbacks</h1>
+          <!-- Breadcrumb row -->
+          <div class="breadcrumb-row">
+            <ul class="list-inline">
+              <li><a href="<%= root_path %>">Home</a></li>
+              <li>Feedbacks</li>
+            </ul>
+          </div>
+          <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+        <div class="section-full content-inner">
+          <div class="container">
+              <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">Feedbacks</h5>
+                <% if @feedbacks.count == 0 %>
+                  <h1  align="center">Oops! No Feedbacks Found.</br>Come Back Later</br><i style="font-size:50px; color: #FFD700;" class="fa fa-frown-o reset-i"></i></h1>
+                  
+                <% end %>
+            <div class="row" style="margin-top: 30px;">
+              <% @feedbacks.each do|user| %>
+              <div class="col-4 col-lg-3" >
+                <div class="m-b30 blog-grid" style="background-color: #A9A9A9">
+                                  <div class="dez-info p-a20 border-1">
+                                      <div class="dez-post-title "style="min-height: 60px;" >
+                                          <h5 class="post-title" ><a href="#"><strong style="font-weight: bold;"><%= user.username %></strong></a></h5>
+                                      </div>
+                                      <div class="dez-post-meta ">
+<!--  -->
+                                      </div>
+
+                                     <div class="dez-post-readmore"> 
+                      <a><%= link_to "View ",feedback_path(user),class: "bg-primary site-button outine" %></a>
+                      <a><%= link_to "Delete",feedback_path(user),method: :delete,data:{confirm: "Are you sure to delete feedback"},class: "site-button bg-danger" %></a>
+                    </div>
+                                  </div>
+                              </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="pagination-bx m-t30" >
+              <%= will_paginate @feedbacks,class: "pagination center" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

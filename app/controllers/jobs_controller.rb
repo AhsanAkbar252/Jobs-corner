@@ -8,7 +8,6 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user_id = current_user.id
-    binding.pry
     if(@job.save)
       flash[:success] = "Job is posted successfully"
       redirect_to jobs_path

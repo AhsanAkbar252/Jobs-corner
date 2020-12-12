@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :profiles
   get 'my_applications',to:'job_applications#my_applications'
   get 'my_jobs',to:'jobs#my_jobs'
+  get 'about_us',to:'welcome#about_us'
+  get 'contact_us',to:'welcome#contact_us'
+  resources :feedbacks,except: [:edit,:update]
 end
