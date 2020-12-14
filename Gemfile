@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
  gem 'themify-icons-rails' , github: 'scratch-soft/themify-icons-rails'
+ gem 'dotenv-rails'
 
 gem 'pry'
 gem 'will_paginate', '~> 3.1.0'

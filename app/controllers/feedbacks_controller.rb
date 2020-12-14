@@ -1,5 +1,6 @@
 class FeedbacksController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin!, only: [:show,:index,:destroy]
   def new
     @feedback = Feedback.new
   end
@@ -8,7 +9,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
     if(@feedback.save)
       flash[:success] = "Job is posted successfully"
-      redirect_to feedbacks_path
+      redirect_to new_feedback_path
     else
       render 'new'
       flash[:error] = @feedback.errors.full_messages
