@@ -8,7 +8,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(feedback_params)
     if(@feedback.save)
-      flash[:success] = "Job is posted successfully"
+      flash[:success] = "feeedback is submitted successfully"
       redirect_to new_feedback_path
     else
       render 'new'

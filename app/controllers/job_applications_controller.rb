@@ -10,7 +10,7 @@ class JobApplicationsController < ApplicationController
     @job_application.user_id = current_user.id
     if(@job_application.save) 
       flash[:success] = "Your application is submitted successfully"
-      redirect_to profiles_path
+      redirect_to jobs_path
     else
       render "new"
     end
