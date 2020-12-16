@@ -17,7 +17,8 @@
         </div>
         <!-- inner page banner END -->
     <!-- contact area -->
-    <%= render 'layouts/messages' %>
+        <%= render 'shared/errors',obj: @feedback%>
+        <%= render 'layouts/messages'%>
         <div class="section-full content-inner bg-white contact-style-1">
       <div class="container">
                 <div class="row">
@@ -89,10 +90,10 @@
                                                 <%= f.text_area :message, class: "form-control", placeholder:"Your message" %>
                                             </div>
                                         </div>
-                                    <div class="field">
+<!--                                     <div class="field">
                                       <%= recaptcha_tags %>
                                     </div>
-                                    </div>
+ -->                                    </div>
                                     <div class="col-lg-12">
                                         <%= f.submit "Submit ", class: "btn btn-primary" %>
                                     </div>

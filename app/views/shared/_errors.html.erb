@@ -1,0 +1,14 @@
+<%if obj.errors.any?%>
+  <div  class="alert alert-warning">
+      <h2><%= pluralize(obj.errors.count,"error") %>
+        prohibited this action from being performed
+        <a href="#" class="close" data-dismiss="alert">&#215;</a>
+      </h2>
+
+        <ul>
+        <% obj.errors.full_messages.each do|msg|%>
+          <li><%=msg%></li>
+        <%end%>
+        </ul>        
+  </div>
+<%end%>

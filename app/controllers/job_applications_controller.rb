@@ -76,7 +76,7 @@ class JobApplicationsController < ApplicationController
 
 
   def application_params
-    params.require(:job_application).permit(:name,:age,:qualification,:experience,:skills,:personalinfo,:job_id,:file,:avatar,:address,:city,:country,:experience_detail,:qualification_detail,:previous_company)
+    params.require(:job_application).permit(:name,:age,:qualification,:experience,:skills,:personalinfo,:job_id,:file,:avatar,:address,:city,:country,:experience_detail,:qualification_detail,:previous_company,:applicant_email)
 
   end
 
