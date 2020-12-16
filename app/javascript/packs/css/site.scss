@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
+.alert-alert { @extend .alert-warning; }
+.alert-notice { @extend .alert-success; }
 
 .img1{
   content: url("../images/logo/icon1.png");

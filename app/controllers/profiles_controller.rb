@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :valid_user, only: [:edit,:update,:destroy]
   def new
     @profile = Profile.new()
   end
@@ -38,6 +39,15 @@ class ProfilesController < ApplicationController
     @profile.destroy
     flash[:danger] = "Profile is deleted successfully"
     redirect_to profiles_path
+
+  end
+
+  def valid_user
+    @profile = Profile.find(params[:id])
+    if current_user !=  @profile.user
+      flash[:danger]= "You cannot perform this action"
+      redirect_to root_path
+    end
 
   end
 

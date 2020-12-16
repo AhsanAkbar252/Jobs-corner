@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
  gem 'themify-icons-rails' , github: 'scratch-soft/themify-icons-rails'
  gem 'dotenv-rails'
+gem "recaptcha", require: "recaptcha/rails"
 
 gem 'pry'
 gem 'will_paginate', '~> 3.1.0'

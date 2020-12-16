@@ -27,6 +27,7 @@
           </div>
         </div>
         <%= render "devise/shared/error_messages", resource: resource %>
+        <%= render 'layouts/messages' %>
         
         <div>
           <div class="max-w500 m-auto m-b30">
@@ -51,7 +52,9 @@
                     <%= f.label :password_confirmation,class: "font-weight-700" %>
                     <%= f.password_field :password_confirmation, class: "form-control", placeholder:"Re-Enter Password" %>
                   </div>
-
+                    <div class="field">
+                      <%= recaptcha_tags %>
+                    </div>
 
                   <div class="text-left">
                     <%= f.submit "Create", class: "site-button m-r5 button-lg" %>

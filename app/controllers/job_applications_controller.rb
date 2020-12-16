@@ -1,5 +1,9 @@
 class JobApplicationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :valid_user, only: [:destroy]
+  before_action :valid_user1, only: [:edit,:update]
+
+
   def new
     @job_application = JobApplication.new()
     @job_application.job_id = params[:current_job_id]
@@ -40,6 +44,24 @@ class JobApplicationsController < ApplicationController
     redirect_to my_applications_path
   end
 
+  def valid_user
+    @job_application = JobApplication.find(params[:id])
+    if current_user !=  @job_application.user && current_user != @job_application.job.user
+      flash[:danger]= "You cannot perform this action"
+      redirect_to root_path
+    end
+
+  end
+
+
+  def valid_user1
+    @job_application = JobApplication.find(params[:id])
+    if current_user !=  @job_application.user
+      flash[:danger]= "You cannot perform this action"
+      redirect_to root_path
+    end
+
+  end
 
   def index
     @job_applications = JobApplication.joins(:job).where(jobs: {user_id: current_user.id}).where.not(job_id: nil).paginate(page: params[:page],per_page: 5)
@@ -48,7 +70,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def my_applications
-    @my_applications = JobApplication.where(user_id: current_user.id).where.not(job_id: nil).paginate(page: params[:page],per_page: 1)
+    @my_applications = JobApplication.where(user_id: current_user.id).where.not(job_id: nil).paginate(page: params[:page],per_page: 5)
   end
 
 

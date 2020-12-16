@@ -1,6 +1,7 @@
 require 'will_paginate/array'
 class JobsController < ApplicationController
   before_action :authenticate_user!
+  before_action :valid_user, only: [:edit,:update,:destroy]
   def new
     @job = Job.new 
   end
@@ -37,8 +38,18 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
+    @job.job_applications.destroy
     flash[:danger] = "Job is deleted successfully"
     redirect_to jobs_path
+
+  end
+
+  def valid_user
+    @job = Job.find(params[:id])
+    if current_user !=  @job.user
+      flash[:danger]= "You cannot perform this action"
+      redirect_to root_path
+    end
 
   end
 
