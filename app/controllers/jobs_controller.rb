@@ -9,12 +9,16 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user_id = current_user.id
-    if(@job.save)
-      flash[:success] = "Job is posted successfully"
-      redirect_to jobs_path
+    if @job.user.jobs.count <= 4
+      if(@job.save)
+        flash[:success] = "Job is posted successfully"
+        redirect_to jobs_path
+      else
+        render 'new'
+      end
     else
+      flash[:danger] = "You cannot post more than 5 jobs at a time"
       render 'new'
-      flash[:error] = @job.errors.full_messages
     end
   end
 
@@ -64,19 +68,23 @@ class JobsController < ApplicationController
   def index
     # @jobs = Job.paginate(page: params[:page],per_page: 5)
     @jobs = Job.all
-    if params[:country].present? || params[:city].present? || params[:type].present? || params[:job_salary].present?
+    if params[:country].present? || params[:city].present? || params[:type].present? || params[:job_salary].present? || params[:keywords].present?
+      if params[:keywords].present?
+        @jobs = @jobs.where("lower(title) like ?","%#{params[:keywords].downcase}%")
+      end
       if params[:country].present?
-        @jobs = @jobs.where(job_country: params[:country]).paginate(page: params[:page],per_page: 5)
+        @jobs = @jobs.where(job_country: params[:country])
       end
       if params[:city].present?
-        @jobs = @jobs.where(job_city: params[:city]).paginate(page: params[:page],per_page: 5)
+        @jobs = @jobs.where(job_city: params[:city])
       end
       if params[:type].present?
-        @jobs = @jobs.where(job_type: params[:type]).paginate(page: params[:page],per_page: 5)
+        @jobs = @jobs.where(job_type: params[:type])
       end
       if params[:job_salary].present?
-        @jobs = @jobs.where("salary > ?",params[:job_salary]).paginate(page: params[:page],per_page: 5)
+        @jobs = @jobs.where("salary > ?",params[:job_salary])
       end
+      @jobs = @jobs.paginate(page: params[:page],per_page: 5)
     else
       @jobs = @jobs.paginate(page: params[:page],per_page: 5)
     end

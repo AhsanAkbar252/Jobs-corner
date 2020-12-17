@@ -15,7 +15,7 @@ class FeedbacksController < ApplicationController
       @feedback = Feedback.new(feedback_params)
       if(@feedback.save)
         flash[:success] = "feeedback is submitted successfully"
-        redirect_to feedbacks_path
+        redirect_to new_feedback_path
       else
         render 'new'
       end

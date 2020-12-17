@@ -12,11 +12,23 @@ class JobApplicationsController < ApplicationController
   def create
     @job_application = JobApplication.new(application_params)
     @job_application.user_id = current_user.id
-    if(@job_application.save) 
-      flash[:success] = "Your application is submitted successfully"
-      redirect_to jobs_path
-    else
-      render "new"
+    same_application = false
+    counter = 0
+    @job = @job_application.job
+    @job.job_applications.each do |application|
+      if @job_application.user == application.user
+        same_application = true
+        flash[:danger] = "You have already applied for this job"
+        redirect_to jobs_path and return
+      end
+    end
+    if same_application ==false
+      if(@job_application.save) 
+        flash[:success] = "Your application is submitted successfully"
+        redirect_to jobs_path
+      else
+        render "new"
+      end
     end
 
   end

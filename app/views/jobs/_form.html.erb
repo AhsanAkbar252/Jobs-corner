@@ -24,6 +24,7 @@
         <%= render 'layouts/messages'%>
       <div class="section-full bg-white submit-resume content-inner-2">
         <div class="container">
+          <h5 class="widget-title font-weight-700 text-uppercase" style="font-weight: bold;">Job Details</h5>
           <%= form_for @job do|f| %>
 
             <div class="form-group">
@@ -67,7 +68,7 @@
               <%= f.text_area :employer_detail, class: "form-control", placeholder:"Tell about your company" %>
             </div>
             <div class="form-group">
-              <%= f.label :package_detail %> 
+              <%= f.label :package_detail,"Job Package Details" %> 
               <%= f.text_area :package_detail, class: "form-control", placeholder:"Package detail" %>
             </div>
             <div class="form-group">

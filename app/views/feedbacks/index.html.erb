@@ -29,7 +29,7 @@
                 <% end %>
             <div class="row" style="margin-top: 30px;">
               <% @feedbacks.each do|user| %>
-              <div class="col-4 col-lg-3" >
+              <div class="col-6 col-lg-3" >
                 <div class="m-b30 blog-grid" style="background-color: #A9A9A9">
                                   <div class="dez-info p-a20 border-1">
                                       <div class="dez-post-title "style="min-height: 60px;" >
@@ -39,9 +39,9 @@
 <!--  -->
                                       </div>
 
-                                     <div class="dez-post-readmore"> 
-                      <a><%= link_to "View ",feedback_path(user),class: "bg-primary site-button outine" %></a>
-                      <a><%= link_to "Delete",feedback_path(user),method: :delete,data:{confirm: "Are you sure to delete feedback"},class: "site-button bg-danger" %></a>
+                                     <div class="dez-post-readmore text-center"> 
+                      <%= link_to "View ",feedback_path(user),class: "bg-primary site-button outine" %>
+                      <%= link_to "Delete",feedback_path(user),method: :delete,data:{confirm: "Are you sure to delete feedback"},class: "site-button bg-danger" %>
                     </div>
                                   </div>
                               </div>
