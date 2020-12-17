@@ -22,7 +22,7 @@ validates :qualification,presence: true,length: {maximum:20}
 validates :qualification_detail,presence: true,length: {maximum:200}
 validates :experience,presence: true, :numericality => { :greater_than_or_equal_to => 0 }
 validates :experience_detail,presence: true,length: {maximum:200}
-validates :address,presence: true,length: {maximum:40}
+validates :address,presence: true,length: {maximum:100}
 validates :city,presence: true,length: {maximum:20}
 validates :country,presence: true,length: {maximum:20}
 validates :previous_company,presence: true,length: {minimum:5,maximum:30}
