@@ -58,7 +58,7 @@
                   <div class="text-left">
                     <%= f.submit "Update", class: "site-button m-r5 button-lg" %>
                     <%= link_to "Back", :back , class: "site-button m-r5 button-lg" %>
-                    <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "site-button m-r5 button-lg" %>
+                    <%= link_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "site-button m-r5 button-lg" %>
                   </div></br>
                 <% end %>
               </div>
