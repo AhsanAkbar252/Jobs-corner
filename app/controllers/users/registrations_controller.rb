@@ -34,7 +34,28 @@ end
 
   # DELETE /resource
   def destroy
-    super
+    @job_applications = JobApplication.all
+    if current_user.profile != nil
+      current_user.profile.destroy
+    end
+    current_user.jobs.each do|job|
+      @job_applications.each do|app|
+        job.job_applications.each do|job_application|
+          if job_application == app
+            app.destroy
+          end
+        end
+      end
+      job.destroy
+    end
+    @job_applications.each do|app|
+      current_user.job_applications.each do|job_application|
+        if job_application == app
+          app.destroy
+        end
+      end
+   end
+   super
   end
 
   # GET /resource/cancel
