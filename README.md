@@ -1,24 +1,3 @@
-# README
+# About Jobs Corner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Jobs Corner is a website designed to help people find jobs and career opportunities. It is a comprehensive platform that can provide users with access to job postings from a variety of sources, such as employers, recruiters, and job boards. Users can search for jobs by location, industry, job title, and salary range. The portal also offers resources to help job seekers such as resume writing tips, job search strategies, and career advice. Additionally, some portals provide tools to help employers with their recruitment efforts, such as applicant tracking and screening.
